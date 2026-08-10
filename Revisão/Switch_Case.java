@@ -2,30 +2,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        String fruta = "";
+        // String fruta = "";
         
-        Scanner sc = new Scanner(System.in); // Declaração do Scanner com UTF-8
-        System.out.print("Digite o nome de uma fruta: ");
-        fruta = sc.nextLine();
-        fruta = fruta.toLowerCase();
-        sc.close();
+        // Scanner sc = new Scanner(System.in); // Declaração do Scanner
+        // System.out.print("Digite o nome de uma fruta: ");
+        // fruta = sc.nextLine();
+        // fruta = fruta.toLowerCase();
+        // sc.close();
 
-        switch (fruta) {
-            case "banana":
-                System.out.println("Amarelo");
-                break;
-            case "maca":
-                System.out.println("Vermelho");
-                break;
-            case "abacate":
-                System.out.println("Verde");
-                break;
-            case "acai":
-                System.out.println("Roxo");
-                break;
-            default:
-                System.out.println("Fruta Indisponível");
-                break;
+        // switch (fruta) {
+        //     case "banana":
+        //         System.out.println("Amarelo");
+        //         break;
+        //     case "maca":
+        //         System.out.println("Vermelho");
+        //         break;
+        //     case "abacate":
+        //         System.out.println("Verde");
+        //         break;
+        //     case "acai":
+        //         System.out.println("Roxo");
+        //         break;
+        //     default:
+        //         System.out.println("Fruta Indisponível");
+        //         break;
+        // }
+
+        // Laços de repetição FOR
+
+        for(int i = 10; i >= 0;i--){
+            System.out.println(i);
         }
+        System.out.println("Fim.");
     }
 }
