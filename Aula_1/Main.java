@@ -13,9 +13,9 @@ public class Main {
         boolean cadastroAtivo = true;
         */
 
-        int a = 3;
-        int b = 2;
-        boolean resultado;
+        //int a = 3;
+        //int b = 2;
+        //boolean resultado;
 
         /*OPERADORES ARITMETICOS
         c = a + b; // ADIÇÃO
@@ -67,5 +67,6 @@ public class Main {
             System.out.println("Peso inválido");
         }
         //Criar condição de peso negativo e peso abaixo de 10 kg
+        sc.close();
     }
 }
