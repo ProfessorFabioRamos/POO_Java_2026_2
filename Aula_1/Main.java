@@ -54,19 +54,21 @@ public class Main {
         System.out.print("Digite o peso: ");
         float peso = sc.nextFloat();
 
-        if(peso >= 120){
+        if(peso > 120){
             System.out.println("Peso máximo excedido!");
         }
-        else if(peso < 120 && peso >= 10){
-            System.out.println("Tobogã Liberado!");
+        else if(peso <= 120 && peso >= 30){
+            System.out.println("Tobogã liberado");
         }
-        else if(peso < 10 && peso >= 0){
+        else if(peso < 30 && peso >= 0){
             System.out.println("Peso abaixo do permitido");
         }
         else{
             System.out.println("Peso inválido");
         }
-        //Criar condição de peso negativo e peso abaixo de 10 kg
+
+        System.out.println("FIM");
+        // Criar condição de peso entre 29 e 0 e condição de peso negativo
         sc.close();
     }
 }
