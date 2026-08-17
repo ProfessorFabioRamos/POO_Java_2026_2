@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        int contador = 0;
+        double somatorio = 0;
+
+        //while(somatorio < 100){
+        while(true){
+            System.out.print("Digite um numero: ");
+            double num = sc.nextDouble();
+            if(num == 0){
+                break;
+            }
+            somatorio += num;
+            contador++;
+        }
+        System.out.println("Somatório: "+somatorio);
+        System.out.println("Media: "+(somatorio/contador));
+        sc.close();
+        ////////////////////////////////////////////////////////////////
+        
+        contador = 0;
+        somatorio = 1000;
+        do{
+            System.out.print("Digite um numero: ");
+            double num = sc.nextDouble();
+            somatorio += num;
+            contador++;
+        }while(somatorio < 1000);
+        System.out.println("Somatório: "+somatorio);
+    }
+}
