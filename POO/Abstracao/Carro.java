@@ -1,11 +1,11 @@
 public class Carro {
-    public String marca = "";
-    public String modelo = "";
-    public int quantidadePassageiros = 0;
-    public float quilometragem = 0;
-    public float velocidadeAtual = 0;
-    public String placa = "";
-    public boolean automatico = false;
+    private String marca = "";
+    private String modelo = "";
+    private int quantidadePassageiros = 0;
+    private float quilometragem = 0;
+    private float velocidadeAtual = 0;
+    private String placa = "";
+    private boolean automatico = false;
 
     public Carro(String marca, String modelo, int quantidadePassageiros,
         String placa){
@@ -37,4 +37,11 @@ public class Carro {
         System.out.println("Passageiros: "+ quantidadePassageiros);
         System.out.println("Quilometragem: "+ quilometragem);
     }
+
+    //Método Getter de marca
+    public String getMarca(){
+        return marca;
+    }
+
+    //Método Setter de marca
 }
