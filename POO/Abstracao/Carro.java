@@ -17,4 +17,25 @@ public class Carro{
         this.placa = placa;
         this.quantidadePassageiros = quantidadePassageiros;
     }
+
+    public void acelerar(){
+        System.out.println("VRUMMMM");
+    }
+
+    public void acelerar(float novaVelocidade){
+        if(novaVelocidade < 220){
+            velocidadeAtual = novaVelocidade;
+            System.out.println("Velocidade: "+velocidadeAtual);
+        }
+    }
+
+    public void mostrarInfo(){
+        System.out.println("Marca: "+ marca);
+        System.out.println("Modelo: "+ modelo);
+        System.out.println("Placa: "+ placa);
+        System.out.println("Passageros: "+ quantidadePassageiros);
+        System.out.println("Quilometragem: "+ quilometragem);
+        System.out.println("Velocidade Atual: "+ velocidadeAtual);
+        System.out.println("Câmbio Manual: "+ automatico);
+    }
 }
