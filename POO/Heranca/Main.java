@@ -7,6 +7,11 @@ public class Main {
         Cachorro cachorro_1 = new Cachorro("Totó", 3, "Labrador");
         cachorro_1.emitirSom();
         cachorro_1.mostrarInfo();
+        cachorro_1.abanarCauda();
         //System.out.println("Raça:"+cachorro_1.raca);
+
+        Gato gato_1 = new Gato("Garfield", 10);
+        gato_1.emitirSom();
+        gato_1.mostrarInfo();
     }
 }
