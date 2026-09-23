@@ -18,4 +18,9 @@ public class Cachorro extends Animal{
         super.mostrarInfo();
         System.out.println("Raça:"+raca);
     }
+
+    //Método próprio da classe Cachorro
+    public void abanarCauda(){
+        System.out.println(nome+" está abanando a cauda!");
+    }
 }
