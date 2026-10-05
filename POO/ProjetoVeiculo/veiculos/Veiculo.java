@@ -23,4 +23,12 @@ public abstract class Veiculo {
             }
         }
     }
+
+    // Metodo Abstrato
+    public abstract void mover();
+
+    public void mostrarInfo(){
+        System.out.println("Nome: "+nome);
+        System.out.println("Velocidade: "+velocidadeAtual);
+    }
 }
