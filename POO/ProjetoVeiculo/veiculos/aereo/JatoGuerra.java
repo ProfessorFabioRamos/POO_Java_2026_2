@@ -10,7 +10,7 @@ public class JatoGuerra extends Aereo{
 
     @Override
     public void mover(){
-        System.out.printf("O Jato %s está se movendo com a velocidade de %.2f km/h a uma altitude de %.2f pés.",nome,velocidadeAtual,altitude);
+        System.out.printf("O Jato %s está se movendo com a velocidade de %.2f km/h a uma altitude de %.2f pés.\n",nome,velocidadeAtual,altitude);
     }
 
     @Override
@@ -28,12 +28,12 @@ public class JatoGuerra extends Aereo{
 
     public void atirarMissel(){
         misseis -=1;
-        System.out.println("Míssel atirado.Misseis restantes"+misseis);
+        System.out.println("Míssel atirado.Misseis restantes: "+misseis);
     }
     // Sobrecarga - Polimorfismo Estático
     public void atirarMissel(int quantidade){
         misseis -=quantidade;
-        System.out.println("Mísseis atirados.Misseis restantes"+misseis);
+        System.out.println("Mísseis atirados.Misseis restantes: "+misseis);
     }
     // Sobrescrita - Polimorfismo Dinâmico
     @Override
@@ -42,4 +42,8 @@ public class JatoGuerra extends Aereo{
         System.out.println("Altitide: "+altitude);
         System.out.println("Mísseis: "+misseis);
     }
+    // Na Main, acelerar ate 2000 km/h e depois ganhar altitude a 50k pés
+    // mover para ver as informações, atirar 10 misses com metodo sem argumento e
+    // atirar mais 10 misses usando metodo com argumentos
+    // perder altitude até 0 e parar, velocidade 0
 }
