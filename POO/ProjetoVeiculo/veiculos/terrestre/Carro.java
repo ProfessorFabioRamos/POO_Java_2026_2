@@ -1,14 +1,21 @@
 package veiculos.terrestre;
 
+import veiculos.interfaces.IMotorizado;
+import veiculos.interfaces.ITripulavel;
+
 // Classe Concreta
-public class Carro extends Terrestre{
+public class Carro extends Terrestre implements IMotorizado, ITripulavel{
     protected String tipoCombustivel;
     protected int passageiros;
+    protected int maximoPassageiros;
+    protected boolean motorLigado;
 
-    public Carro(String nome, int numeroRodas, String tipoCombustivel){
+    public Carro(String nome, int numeroRodas, String tipoCombustivel, int maximoPassageiros){
         super(nome, numeroRodas);
         this.tipoCombustivel = tipoCombustivel;
-        this.passageiros = 0;    
+        this.passageiros = 0;
+        this.motorLigado = false;  
+        this.maximoPassageiros = maximoPassageiros;  
     }
 
     @Override
@@ -22,5 +29,54 @@ public class Carro extends Terrestre{
         super.mostrarInfo();
         System.out.println("Numero de rodas: "+numeroRodas);
         System.out.println("Tipo de Combustível: "+tipoCombustivel);
+    }
+
+    @Override
+    public void ligarMotor(){
+        if(velocidadeAtual == 0  && !motorLigado){
+            motorLigado = true;
+            System.out.println("Motor está ligado.");
+        }
+    }
+
+    @Override
+    public void desligarMotor(){
+        if(velocidadeAtual == 0  && motorLigado){
+            motorLigado = false;
+            System.out.println("Motor foi desligado.");
+        }
+    }
+
+    @Override
+    public void acelerar(double incremento){
+        if(motorLigado){
+            super.acelerar(incremento);
+        }
+        else{
+            System.out.println("O motor está desligado. Não é possível acelerar!");
+        }
+    }
+
+    @Override
+    public void embarcar(int quantidade){
+        if(passageiros < maximoPassageiros){
+            passageiros += quantidade;
+            if(passageiros > maximoPassageiros){
+                passageiros = maximoPassageiros;
+                System.out.println("Limite de passageiros excedido!");
+            }
+             System.out.println(passageiros+" passageiros estão no carro.");
+        }
+    }
+
+    @Override
+    public void desembarcar(int quantidade){
+        if(passageiros > 0){
+            passageiros -= quantidade;
+            if(passageiros < 0){
+                passageiros = 0;
+            }
+            System.out.println(passageiros+" passageiros estão no carro.");
+        }
     }
 }
