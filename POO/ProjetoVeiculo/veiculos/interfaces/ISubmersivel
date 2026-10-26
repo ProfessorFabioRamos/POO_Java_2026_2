@@ -1,0 +1,6 @@
+package veiculos.interfaces;
+
+public interface ISubmersivel {
+    void submergir();
+    void emergir();
+}
