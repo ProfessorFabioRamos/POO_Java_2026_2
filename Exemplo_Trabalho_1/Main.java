@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args){
+        EstruturaList estoque_principal = new EstruturaList();
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -17,18 +18,18 @@ public class Main {
             if(opcao == 0){
                 break;
             }
+
             switch (opcao) {
                 case 1:
-                   // Adicionar elemento na lista
-                    System.out.println("Digite o nome do produto:");
+                    System.out.print("Digite o nome do produto: ");
+                    sc.nextLine();
                     String nome =  sc.nextLine();
-                    System.out.println("Digite a quantidade do produto:");
+                    System.out.print("Digite a quantidade do produto: ");
                     int quantidade =  sc.nextInt();
-                    System.out.println("Digite o preço do produto:");
+                    System.out.print("Digite o preço do produto: ");
                     float valor =  sc.nextFloat();
-                    Produto produto_1 = new Produto(nome, quantidade, valor);
-                    // Adicionar na lista
-                    
+                    Produto produto = new Produto(nome, quantidade, valor);
+                    estoque_principal.adicionar(produto);
                     break;
                 case 2:
                    // Listar todos os elementos da lista
@@ -37,10 +38,12 @@ public class Main {
                      // Atualizar elemento da lista
                     break;
                 case 4:
-                    // Remover elemento da lista
+                    System.out.print("Digite o indice do produto a ser removido: ");
+                    int index = sc.nextInt();
+                    estoque_principal.remover(index);
                     break;
                 default:
-                    break;
+                    System.out.println("Escolha uma opção válida");
             }
 
         }
