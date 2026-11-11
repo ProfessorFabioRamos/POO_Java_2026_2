@@ -5,7 +5,10 @@ public class Main {
         //System.out.println(res);
 
         // Tratamento de divisão por 0
-        Divisao div = new Divisao(9, 0);
-        div.dividir();
+        //Divisao div = new Divisao(9, 0);
+        //div.dividir();
+
+        Idade idade = new Idade(2026);
+        idade.calcularIdade();
     }
 }
