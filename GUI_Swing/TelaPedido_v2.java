@@ -1,27 +1,27 @@
+import javax.swing.JFrame;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TelaPedido extends JFrame{
     private JTextField txtNome, txtSabor;
     private JLabel labelResumo;
 
     public TelaPedido(){
-        // Configurações da tela
+        // Configurações básicas da janela
         setTitle("Pizzaria Mario");
         setSize(450,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,29 +31,25 @@ public class TelaPedido extends JFrame{
         // Criar painel e os componentes
         JPanel painel = new JPanel(new GridLayout(2,2,5,5));
         painel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
-
         painel.add(new Label("Seu nome:"));
         txtNome = new JTextField();
         painel.add(txtNome);
 
-        painel.add(new Label("Sabor da Pizza:"));
+        painel.add(new Label("Sabor da pizza:"));
         txtSabor = new JTextField();
         painel.add(txtSabor);
 
-        // Botão
         JButton botaoConfirmar = new JButton("Confirmar Pedido");
-        botaoConfirmar.addActionListener(e-> processarPedido());
+        botaoConfirmar.addActionListener(e -> processarPedido());
 
-        // Resumo do pedido
-        labelResumo = new JLabel("Aguardando pedido...",
-        SwingConstants.CENTER);
+        labelResumo = new JLabel("Aguardando pedido...", SwingConstants.CENTER);
         labelResumo.setForeground(Color.BLUE);
         labelResumo.setPreferredSize(new Dimension(0,50));
-
-        // Adicionar os componentes ao frame
+        
+        // Adicionar o painel e elementos no frame
         add(painel, BorderLayout.CENTER);
-        add(botaoConfirmar,BorderLayout.NORTH);
-        add(labelResumo,BorderLayout.SOUTH);
+        add(botaoConfirmar, BorderLayout.NORTH);
+        add(labelResumo, BorderLayout.SOUTH);
     }
 
     public void processarPedido(){
@@ -62,12 +58,17 @@ public class TelaPedido extends JFrame{
             String sabor = txtSabor.getText().trim();
 
             if(nome.isEmpty() || sabor.isEmpty()){
-                throw new PedidoInvalidoException("Todos os campos devem ser preenchidos");
+                throw new PedidoInvalidoException("Todos os campos devem ser preenchidos.");
             }
-            // Sucesso
-            // TO DO
-        }catch(PedidoInvalidoException e){
 
+            // Sucesso
+            String msg = "Pedido de "+nome+": Pizza de "+sabor;
+            JOptionPane.showMessageDialog(this, "Pedido enviado com sucesso!");
+            labelResumo.setText("Último pedido: "+msg);
+        }catch(PedidoInvalidoException e){
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Erro no pedido",JOptionPane.WARNING_MESSAGE);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Erro nos dados",JOptionPane.ERROR_MESSAGE);
         }
     }
 }
